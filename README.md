@@ -13,7 +13,7 @@ module.exports = {
      * setup the site to pull data from a particular Google Sheet
      */
     {
-      resolve: `gatsby-source-google-sheets`,
+      resolve: `gatsby-source-google-sheet`,
       options: {
         // For protected spreadsheets you can use two-legged OAuth as described here:
         // https://www.npmjs.com/package/google-spreadsheet#service-account-recommended-method
