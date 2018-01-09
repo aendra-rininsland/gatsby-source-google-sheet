@@ -13,25 +13,23 @@ exports.sourceNodes = async ({ boundActionCreators }, pluginOptions) => {
     );
   }
 
-  const items = await Promise.all(
-    (await new Promise((resolve, reject) =>
-      doc.getInfo((err, info) => {
-        if (err || !info.worksheets.length) reject(err);
-        resolve(info.worksheets);
-      })
-    )).reduce(
-      async (acc, sheet) =>
-        acc.concat(
-          await new Promise((resolve, reject) => {
-            sheet.getRows((err, rows) => {
-              if (err) reject(err);
-              resolve(rows);
-            });
-          })
-        ),
-      []
-    )
+  const worksheets = await new Promise((resolve, reject) =>
+    doc.getInfo((err, info) => {
+      if (err || !info.worksheets.length) reject(err);
+      resolve(info.worksheets);
+    })
   );
+
+  const items = await worksheets.reduce(async (acc, sheet) => {
+    const rows = await new Promise((resolve, reject) => {
+      sheet.getRows((err, rows) => {
+        if (err) reject(err);
+        resolve(rows);
+      });
+    });
+
+    return (await acc).concat(rows);
+  }, Promise.resolve([]));
 
   const rows = items.forEach(item => {
     const itemNode = SheetNode(item);
