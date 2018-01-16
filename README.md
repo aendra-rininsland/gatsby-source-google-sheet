@@ -1,6 +1,6 @@
 # gatsby-source-google-sheets
 
-Source plugin for pulling data into Gatsby from MongoDB collections.
+Source plugin for pulling data into Gatsby from a Google Sheets document
 
 ## How to use
 
