@@ -12,9 +12,9 @@ const {
 exports.sourceNodes = async ({ boundActionCreators }, pluginOptions) => {
   const { createNode } = boundActionCreators;
 
-  const rootName = pluginOptions["rootName"] || "Sheet";
+  const rootName = pluginOptions.rootName || "Sheet";
 
-  export const RootNode = createNodeFactory(rootName);
+  const RootNode = createNodeFactory(rootName);
 
   const doc = new GoogleSpreadsheet(pluginOptions.spreadsheetKey);
 
