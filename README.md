@@ -24,7 +24,8 @@ module.exports = {
         // This is the bit after "/d/" and before "/edit" in the URL of a
         // Google Sheets document. I.e.,
         // https://docs.google.com/spreadsheets/d/1ec1bO25bbEL4pdZjhlV3AppMtnO65D0ZI8fXy4z47Dw/edit#gid=0
-        spreadsheetKey: `1ec1bO25bbEL4pdZjhlV3AppMtnO65D0ZI8fXy4z47Dw`
+        spreadsheetKey: `1ec1bO25bbEL4pdZjhlV3AppMtnO65D0ZI8fXy4z47Dw`,
+        rootName: 'RootName' // default is Sheet
       }
     }
   ]
@@ -42,7 +43,7 @@ Below is a sample query for fetching three columns in a spreadsheet.
 
 ```graphql
 query GetGoogleSheetsColumns {
-  allGoogleSheetsSheet {
+  allGoogleSheet$rootName {
     edges {
       node {
         col1
