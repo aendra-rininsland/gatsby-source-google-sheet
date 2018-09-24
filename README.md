@@ -32,6 +32,26 @@ module.exports = {
 };
 ```
 
+##### With .env (if you make your code public)
+
+1. Run `npm install dotenv --save-dev`
+
+2. Create `.env` in the root folder and fill with the credentials
+
+```
+GS_CLIENT_EMAIL=
+GS_PRIVATE_KEY=
+```
+
+3. Add `require('dotenv').config()` on top of *gatsby-config.js*, and edit the creds object
+
+```javascript
+  creds: {
+    client_email: process.env.GS_CLIENT_EMAIL || ``,
+    private_key: process.env.GS_PRIVATE_KEY.replace(/\\n/g, '\n') || ``
+  }
+```
+
 ## Plugin options
 
 * **creds**: Object containing `client_email` and `private_key`, for non-public sheets.
