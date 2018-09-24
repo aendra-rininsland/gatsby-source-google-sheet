@@ -1,10 +1,21 @@
 // gatsby-node.js
-
-import { SheetNode } from "./nodes";
 import GoogleSpreadsheet from "google-spreadsheet";
+import createNodeHelpers from "gatsby-node-helpers";
+
+const {
+  createNodeFactory,
+} = createNodeHelpers({
+  typePrefix: `GoogleSheet`
+});
+
 
 exports.sourceNodes = async ({ boundActionCreators }, pluginOptions) => {
   const { createNode } = boundActionCreators;
+
+  const rootName = pluginOptions.rootName || "Sheet";
+
+  const RootNode = createNodeFactory(rootName);
+
   const doc = new GoogleSpreadsheet(pluginOptions.spreadsheetKey);
 
   if (pluginOptions.creds) {
@@ -32,7 +43,7 @@ exports.sourceNodes = async ({ boundActionCreators }, pluginOptions) => {
   }, Promise.resolve([]));
 
   const rows = items.forEach(item => {
-    const itemNode = SheetNode(item);
+    const itemNode = RootNode(item);
     createNode(itemNode);
   });
 };
