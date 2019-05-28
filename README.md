@@ -2,7 +2,7 @@
 
 Source plugin for pulling data into Gatsby from a Google Sheets document
 
-## A note on versions
+## A note on versions
 
 I haven't really used this very extensively lately but have tried to upgrade it
 for Gatsby 2.x.
