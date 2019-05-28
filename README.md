@@ -2,6 +2,14 @@
 
 Source plugin for pulling data into Gatsby from a Google Sheets document
 
+## A note on versions
+
+I haven't really used this very extensively lately but have tried to upgrade it
+for Gatsby 2.x.
+
+* If using Gatsby 1.x, do `npm i gatsby-source-google-sheet@1`
+* If using Gatsby 2.x+, do `npm i gatsby-source-google-sheet@2`
+
 ## How to use
 
 ```javascript
@@ -25,7 +33,7 @@ module.exports = {
         // Google Sheets document. I.e.,
         // https://docs.google.com/spreadsheets/d/1ec1bO25bbEL4pdZjhlV3AppMtnO65D0ZI8fXy4z47Dw/edit#gid=0
         spreadsheetKey: `1ec1bO25bbEL4pdZjhlV3AppMtnO65D0ZI8fXy4z47Dw`,
-        rootName: 'RootName' // default is Sheet
+        rootName: "RootName" // default is Sheet
       }
     }
   ]
@@ -43,7 +51,7 @@ GS_CLIENT_EMAIL=
 GS_PRIVATE_KEY=
 ```
 
-3. Add `require('dotenv').config()` on top of *gatsby-config.js*, and edit the creds object
+3. Add `require('dotenv').config()` on top of _gatsby-config.js_, and edit the creds object
 
 ```javascript
   creds: {

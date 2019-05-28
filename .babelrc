@@ -1,20 +1,10 @@
 {
-  "sourceMaps": true,
   "presets": [
     [
-      "babel-preset-env",
+      "babel-preset-gatsby-package",
       {
-        "loose": true,
-        "useBuiltIns": true,
-        "modules": "commonjs"
+        "corejs": 3
       }
     ]
-  ],
-  "ignore": ["dist"],
-  "env": {
-    "production": {
-      "ignore": ["__tests__", "dist"]
-    }
-  }
+  ]
 }
-

@@ -3,3 +3,4 @@
 yarn.lock
 tests
 node_modules
+.vscode
