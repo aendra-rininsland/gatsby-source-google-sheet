@@ -1,3 +1,5 @@
+*Update:* Do you _really_ want to use Gatsby? https://twitter.com/tesseralis/status/1293649007739191296
+
 # gatsby-source-google-sheets
 
 Source plugin for pulling data into Gatsby from a Google Sheets document
